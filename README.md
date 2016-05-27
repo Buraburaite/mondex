@@ -1,6 +1,6 @@
 # mondex
 
-This project is a webapp created using Flask and SQLAlchemy in 2014. It is for a card-and-board game created by my friend, Alex Durkee. The game itself draws heavily from the Pokemon and Digimon franchises, including additions, subtractions, and alterations. The game was made for strictly personal use, with up to 21 players, playing in person, and has never been distributed
+This project is a webapp created using Python, Flask, and SQLAlchemy in 2014. It is for a card-and-board game created by my friend, Alex Durkee. The game itself draws heavily from the Pokemon and Digimon franchises, including additions, subtractions, and alterations. The game was made for strictly personal use, with up to 21 players, playing in person, and has never been distributed
 nor commercialized. This app is not that game, however, and is being made available on Github. Credit for its development is given primarily to myself, Javier Cueto. However, Alex Durkee is credited as well, for the conceptual design
 of most of the pages, as well as for helping to fix bugs in the html and css at various points during development.
 
