@@ -1,0 +1,375 @@
+
+<html>
+  <head>
+    <title>'Mondex - List</title>
+    <link rel="stylesheet" type="text/css" href="http://s3.amazonaws.com/mondexbucket/static/formatting/fourth.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<style>
+	table {width:100%;}
+        p.dropHeader {font-weight: bold;}
+	#Dex{-webkit-column-count:2; -moz-column-count:2; column-count:2;}
+	#searchBar{-webkit-column-count:3; -moz-column-count:3; column-count:3;
+                            background-color: #EBA963; border: 2px solid black; padding: 2px;}
+	#Left{text-align:left;}
+	#Center{text-align:center;}
+	#Right{text-align:right;}
+	#unseen{color:#AAAAAA;}
+	#white{color:#FFFFFF;}
+	#dropboxes{-webkit-column-count:5; -moz-column-count:5; column-count:5;
+                -webkit-column-gap:0px; -moz-column-gap:0px; column-gap:0px; height: 100px;}
+	</style>
+  </head>
+  <body>
+
+    <div id="searchBar">
+        <div id="Left">                    
+            <form action="" method="post">
+                <input type="search" list="autoComplete" placeholder="Search..." name="search" size="18" value="">
+                <datalist id="autoComplete">
+                {% for mon in monNames %}<option value="{{ mon }}">
+                {% endfor %}</datalist>
+                <input class="btn btn-default" name="submit" type="submit" value="Go">
+                <input type="checkbox" name="checkboxS" value="Seen">S
+                <input type="checkbox" name="checkboxA" value="SeenA">A
+                <input type="checkbox" name="checkboxB" value="SeenB">B 
+                <input type="checkbox" name="checkboxC" value="Caught">C
+                <input class="btn btn-default" name="submit" type="submit" value="Update">{{ error }}
+        </div>
+        <div id="Center">      
+                <input class="btn btn-default" name="submit" type="submit" value="Home">
+                <input class="btn btn-default" name="submit" type="submit" value="Record">
+                <input class="btn btn-default" name="submit" type="submit" value="Type Chart">
+                <input class="btn btn-default" name="submit" type="submit" value="Map">
+          <input class="btn btn-default" type="submit" name="submit" value="Calculate">
+        </div>
+        <div id="Right">
+                <input class="btn btn-default" name="submit" type="submit" value="Logout">
+            </form>
+        </div>       
+    </div>
+    <br>
+      <table id="Dex">
+        <tr><th><h1 id="Left">&nbsp&nbsp&nbsp Search the Dex:</h1></th><td id="Right">S: {{ index["seenActual"] }}/{{ index["seenTotal"] }} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td></tr>
+        <tr><td></td><td id="Right">C: {{ index["caughtActual"] }}/{{ index["caughtTotal"] }} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td></tr>
+      </table>
+    </br>
+	<div>
+		<div id="dropboxes">
+                 <form method="post" action="">
+			<div action="" id="Center">
+                       <p class="dropHeader">Rank</p>
+				<select multiple name="rank">
+				<option value="T">T</option>
+				<option value="R">R</option>
+				<option value="C">C</option>
+				<option value="C+">C+</option>
+				<option value="U">U</option>
+				<option value="U+">U+</option>
+				<option value="M">M</option>
+				<option value="M+">M+</option>
+				<option value="Z">Z</option>
+				</select>
+			</div>
+			<div action="" id="Center">
+                       <p class="dropHeader">Type</p>
+				<select multiple name="type">
+				<option value="AI">Air</option>
+				<option value="AR">Arcane</option>
+				<option value="BE">Beast</option>
+				<option value="BG">Bug</option>
+				<option value="DK">Dark</option>
+				<option value="DG">Dragon</option>
+				<option value="EL">Electric</option>
+				<option value="FT">Fighting</option>
+				<option value="FR">Fire</option>
+				<option value="GH">Ghost</option>
+				<option value="GD">Ground</option>
+				<option value="IC">Ice</option>
+				<option value="LT">Light</option>
+				<option value="ME">Metal</option>
+				<option value="NR">Normal</option>
+				<option value="PL">Plant</option>
+				<option value="PO">Poison</option>
+				<option value="PY">Psychic</option>
+				<option value="RK">Rock</option>
+				<option value="TC">Tech</option>
+				<option value="WT">Water</option>
+				</select>
+			</div>
+			<div action="" id="Center">
+                       <p class="dropHeader">Biome</p>
+				<select multiple name="biome">
+				<option value="AM">AM</option>
+				<option value="CC1">CC1</option>
+				<option value="CC2">CC2</option>
+				<option value="CV1">CV1</option>
+				<option value="CV2">CV2</option>
+				<option value="CV3">CV3</option>
+				<option value="DF1">DF1</option>
+				<option value="DF2">DF2</option>
+				<option value="DF3">DF3</option>
+				<option value="DF4">DF4</option>
+				<option value="DS1">DS1</option>
+				<option value="DS2">DS2</option>
+				<option value="DS3">DS3</option>
+				<option value="DS4">DS4</option>
+				<option value="DU1">DU1</option>
+				<option value="DU2">DU2</option>
+				<option value="FO1">FO1</option>
+				<option value="FO2">FO2</option>
+				<option value="FO3">FO3</option>
+				<option value="FW1">FW1</option>
+				<option value="FW2">FW2</option>
+				<option value="FW3">FW3</option>
+				<option value="FW4">FW4</option>
+				<option value="GL1">GL1</option>
+				<option value="GL2">GL2</option>
+				<option value="GL3">GL3</option>
+				<option value="GL4">GL4</option>
+				<option value="GL5">GL5</option>
+				<option value="HE1">HE1</option>
+				<option value="HE2">HE2</option>
+				<option value="HI">HI</option>
+				<option value="IN1">IN1</option>
+				<option value="IN2">IN2</option>
+				<option value="IN3">IN3</option>
+				<option value="IN4">IN4</option>
+				<option value="JU1">JU1</option>
+				<option value="JU2">JU2</option>
+				<option value="JU3">JU3</option>
+				<option value="JU4">JU4</option>
+				<option value="LG1">LG1</option>
+				<option value="LG2">LG2</option>
+				<option value="MN">MN</option>
+				<option value="MT1">MT1</option>
+				<option value="MT2">MT2</option>
+				<option value="MT3">MT3</option>
+				<option value="MT4">MT4</option>
+				<option value="OC1">OC1</option>
+				<option value="OC2">OC2</option>
+				<option value="OC3">OC3</option>
+				<option value="PP">PP</option>
+				<option value="PR1">PR1</option>
+				<option value="PR2">PR2</option>
+				<option value="RA1">RA1</option>
+				<option value="RA2">RA2</option>
+				<option value="RA3">RA3</option>
+				<option value="RE1">RE1</option>
+				<option value="RE2">RE2</option>
+				<option value="RG">RG</option>
+				<option value="RM1">RM1</option>
+				<option value="RM2">RM2</option>
+				<option value="RV1">RV1</option>
+				<option value="RV2">RV2</option>
+				<option value="RS">RS</option>
+				<option value="SK1">SK1</option>
+				<option value="SK2">SK2</option>
+				<option value="SK3">SK3</option>
+				<option value="SV1">SV1</option>
+				<option value="SV2">SV2</option>
+				<option value="SV3">SV3</option>
+				<option value="SW1">SW1</option>
+				<option value="SW2">SW2</option>
+				<option value="SW3">SW3</option>
+				<option value="SW4">SW4</option>
+				<option value="TU1">TU1</option>
+				<option value="TU2">TU2</option>
+				<option value="UG">UG</option>
+				<option value="UW1">UW1</option>
+				<option value="UW2">UW2</option>
+				<option value="UW3">UW3</option>
+				<option value="VC1">VC1</option>
+				<option value="VC2">VC2</option>
+				<option value="VC3">VC3</option>
+				<option value="VC4">VC4</option>
+				<option value="WC1">WC1</option>
+				<option value="WC2">WC2</option>
+				</select>
+			</div>
+			<div action="" id="Center">
+                       <p class="dropHeader">Badge/Crest</p>
+				<select multiple name="badgeCrest">
+				<option value="AI">Air</option>
+				<option value="AR">Arcane</option>
+				<option value="BE">Beast</option>
+				<option value="BG">Bug</option>
+				<option value="DK">Dark</option>
+				<option value="DG">Dragon</option>
+				<option value="EL">Electric</option>
+				<option value="FT">Fighting</option>
+				<option value="FR">Fire</option>
+				<option value="GH">Ghost</option>
+				<option value="GD">Ground</option>
+				<option value="IC">Ice</option>
+				<option value="LT">Light</option>
+				<option value="ME">Metal</option>
+				<option value="NR">Normal</option>
+				<option value="PL">Plant</option>
+				<option value="PO">Poison</option>
+				<option value="PY">Psychic</option>
+				<option value="RK">Rock</option>
+				<option value="TC">Tech</option>
+				<option value="WT">Water</option>
+				</select>
+			</div>
+			<div action="" id="Left"><br><br>
+                       <input type="search" placeholder="Level Range" name="searchLvl" value="">
+                       <input type="search" placeholder="Has move..." name="searchMove" value="">
+                       <input type="search" placeholder="Has ability..." name="searchAbil" value="">
+                       <br>
+				<input class="btn btn-default" name="submit" type="submit" value="Filter">{{ errorFilter }}
+			</div>
+                 </form>
+		</div>
+	</div>
+      <hr>
+    <div class="container" id="Dex">
+        <div><br>	
+        <table>
+		<tr>
+			<th></th>
+			<th align="left">Index&nbsp#</th>
+			<th align="left">Name</th>
+			<th align="left">Rank</th>
+			<th align="left">Types</th>
+			<th align="left">Biome</th>
+			<th align="left">S</th>
+			<th align="left">A</th>
+			<th align="left">B</th>
+			<th align="left">C</th>
+		</tr>
+            {% for mon in monList %}
+                {% if mon[0]=="D" %}
+                    {% if index[mon]["Status"]!="None" %}
+        		<tr>
+                        {% if "C" in index[mon]["Status"] %}
+        			<td align="right"><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/{{ index[mon]["Obtainability"] + ".png" }}" width="25" height="25"></td>
+                        {% else %}
+                       <td></td>
+                        {% endif %}
+        			<td>{{ mon }}</td>
+        			<td><a href="/result/{{ index[mon]["FullName"] }}">{{ index[mon]["FullName"] }}</a></td>
+        			<td>{{ index[mon]["Rank"] }}</td>
+                        {% if index[mon]["Type"][0:2]!=index[mon]["Type"][3:5] %}
+        			<td><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/{{ index[mon]["Type"][0:2] + "1.png" }}" width="25" height="25"><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/{{ index[mon]["Type"][3:5] + "1.png" }}" width="25" height="25"></td>
+                        {% else %}
+        			<td><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/{{ index[mon]["Type"][0:2] + "1.png" }}" width="25" height="25"></td>    
+                        {% endif %}
+                        {% if "A" in index[mon]["Status"] %}
+        			<td>{{ index[mon]["Biome"] }}</td>
+                        {% elif "B" in index[mon]["Status"] %}
+        			<td>{{ index[mon]["Biome"] }}</td>
+                        {% else %}
+        			<td></td>
+                        {% endif %}
+                        {% if "S" in index[mon]["Status"] %}
+        			<td align="left">S</td>
+                        {% else %}
+                         <td></td>
+                        {% endif %}
+                        {% if "A" in index[mon]["Status"] %}
+        			<td align="left">A</td>
+                        {% else %}
+                         <td></td>
+                        {% endif %}
+                        {% if "B" in index[mon]["Status"] %}
+        			<td align="left">B</td>
+                        {% else %}
+                         <td></td>
+                        {% endif %}
+                        {% if "C" in index[mon]["Status"] %}
+        			<td align="left">C</td>
+                        {% else %}
+                         <td></td>
+                        {% endif %}
+        		</tr>
+                    {% else %}
+                <tr id="unseen">
+                     <td align="right"><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/No Catch.png" width="25" height="25"></td>
+        		    <td>{{ mon }}</td>
+                </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            {% for i in range(index["Difference"]+2) %}
+                <tr><td align="right"><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/No Catch.png" width="25" height="25"></td></tr>
+            {% endfor %}
+        </table>
+        </div>
+        <div>
+        <table>
+		<tr>
+			<th></th>
+			<th align="left">Index&nbsp#</th>
+			<th align="left">Name</th>
+			<th align="left">Rank</th>
+			<th align="left">Types</th>
+			<th align="left">Biome</th>
+			<th align="left">S</th>
+			<th align="left">A</th>
+			<th align="left">B</th>
+			<th align="left">C</th>
+		</tr>
+            {% for mon in monList %}
+                {% if mon[0]=="P" %}
+                    {% if index[mon]["Status"]!="None" %}
+        		<tr>
+                        {% if "C" in index[mon]["Status"] %}
+        			<td align="right"><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/{{ index[mon]["Obtainability"] + ".png" }}" width="25" height="25"></td>
+                        {% else %}
+                     <td></td>
+                        {% endif %}
+        			<td>{{ mon }}</td>
+        			<td><a href="/result/{{ index[mon]["FullName"] }}">{{ index[mon]["FullName"] }}</a></td>
+        			<td>{{ index[mon]["Rank"] }}</td>
+                        {% if index[mon]["Type"][0:2]!=index[mon]["Type"][3:5] %}
+        			<td><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/{{ index[mon]["Type"][0:2] + "1.png" }}" width="25" height="25"><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/{{ index[mon]["Type"][3:5] + "1.png" }}" width="25" height="25"></td>
+                        {% else %}
+        			<td><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/{{ index[mon]["Type"][0:2] + "1.png" }}" width="25" height="25"></td>    
+                        {% endif %}
+                        {% if "A" in index[mon]["Status"] %}
+        			<td>{{ index[mon]["Biome"] }}</td>
+                        {% elif "B" in index[mon]["Status"] %}
+        			<td>{{ index[mon]["Biome"] }}</td>
+                        {% else %}
+        			<td></td>
+                        {% endif %}
+                        {% if "S" in index[mon]["Status"] %}
+        			<td align="left">S</td>
+                        {% else %}
+                         <td></td>
+                        {% endif %}
+                        {% if "A" in index[mon]["Status"] %}
+        			<td align="left">A</td>
+                        {% else %}
+                         <td></td>
+                        {% endif %}
+                        {% if "B" in index[mon]["Status"] %}
+        			<td align="left">B</td>
+                        {% else %}
+                         <td></td>
+                        {% endif %}
+                        {% if "C" in index[mon]["Status"] %}
+        			<td align="left">C</td>
+                        {% else %}
+                         <td></td>
+                        {% endif %}
+        		</tr>
+                    {% else %}
+                <tr id="unseen">
+                     <td align="right"><img src="http://s3.amazonaws.com/mondexbucket/static/Symbols/No Catch.png" width="25" height="25"></td>
+        		    <td>{{ mon }}</td>
+                </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+        </div>
+
+        <br>
+        <br>
+        <br>
+    </div>
+  </body>
+</html>

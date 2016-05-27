@@ -1,0 +1,6 @@
+<input list="autoComplete" name="autoComplete">
+<datalist id="autoComplete">
+    {% for mon in monNames %}
+    <option value="{{ index[mon]["FullName"] }}">
+    {% endfor %}
+</datalist>

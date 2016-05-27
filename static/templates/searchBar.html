@@ -1,0 +1,26 @@
+<div id="searchBar">
+      <div id="Left">                    
+          <form action="" method="post">
+              <input type="search" list="autoComplete" placeholder="Search..." name="search" size="18" value="">
+              <datalist id="autoComplete">
+              {% for mon in monNames %}<option value="{{ mon }}">
+              {% endfor %}</datalist>
+              <input class="btn btn-default" name="submit" type="submit" value="Go">{{ error }}
+              <input type="checkbox" name="checkboxS" value="Seen">S
+              <input type="checkbox" name="checkboxA" value="SeenA">A
+              <input type="checkbox" name="checkboxB" value="SeenB">B 
+              <input type="checkbox" name="checkboxC" value="Caught">C
+              <input class="btn btn-default" name="submit" type="submit" value="Update"> 
+      </div>
+      <div id="Center">      
+              <input class="btn btn-default" name="submit" type="submit" value="Home">  
+              <input class="btn btn-default" name="submit" type="submit" value="Record">
+              <input class="btn btn-default" name="submit" type="submit" value="List">
+              <input class="btn btn-default" type="submit" name="submit" value="Type Chart">
+              <input class="btn btn-default" name="submit" type="submit" value="Calculate">
+      </div>
+      <div id="Right">
+              <input class="btn btn-default" name="submit" type="submit" value="Logout">
+          </form>
+      </div>
+  </div>

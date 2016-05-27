@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>'Mondex - Record</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="http://s3.amazonaws.com/mondexbucket/static/formatting/fourth.css">
+    <style>
+        #Left{text-align:left;}
+        #Center{text-align:center;}
+        #Right{text-align:right;}
+        #searchBar{-webkit-column-count:3; -moz-column-count:3; column-count:3;
+                    background-color: #EBA963; border: 2px solid black; padding: 2px;}
+        h1{margin:.67em 0;font-size:6em;}
+        #record{font-size:16px; height:30px; width:200px;} 
+        #recordBtn{font-size:16px; height:30px; width:80px;}
+        #recordCheckboxes{height:20px; width:20px;}
+        #checkText{font-size:24px;}
+    </style>
+  </head>
+  <body>
+  <div id="searchBar">
+        <div id="Left">                    
+            <form action="" method="post">
+                <input type="search" list="autoComplete" placeholder="Search..." name="search" size="18" value="">
+                <datalist id="autoComplete">
+                {% for mon in monNames %}<option value="{{ mon }}">
+                {% endfor %}</datalist>
+                <input class="btn btn-default" name="submit" type="submit" value="Go">{{ errorGo }}
+        </div>
+        <div id="Center">      
+                <input class="btn btn-default" name="submit" type="submit" value="Home">
+                <input class="btn btn-default" name="submit" type="submit" value="List">
+                <input class="btn btn-default" type="submit" name="submit" value="Map">
+                <input class="btn btn-default" type="submit" name="submit" value="Type Chart">
+                <input class="btn btn-default" name="submit" type="submit" value="Calculate">
+        </div>
+        <div id="Right">
+                <input class="btn btn-default" name="submit" type="submit" value="Logout">
+        </div>
+    </div>
+    <div align="middle">
+      <h1>Update your 'Mondex</h1>
+      <br>
+          <input type="search" id="record" list="autoComplete" placeholder="Record..." name="searchUpdate" value="">
+          &nbsp&nbsp
+          <input class="btn btn-default" id="recordBtn" name="submit" type="submit" value="Update"/>
+              {% if errorUpdate %} <br> {% endif %} {{ errorUpdate }}
+          <br><br>
+          <input id="recordcheckboxes" type="checkbox" name="checkboxS" value="Seen">&nbsp<span id="checkText">S</span>&nbsp
+          <input id="recordcheckboxes" type="checkbox" name="checkboxA" value="SeenA">&nbsp<span id="checkText">A</span>&nbsp
+          <input id="recordcheckboxes" type="checkbox" name="checkboxB" value="SeenB">&nbsp<span id="checkText">B</span>&nbsp
+          <input id="recordcheckboxes" type="checkbox" name="checkboxC" value="Caught">&nbsp<span id="checkText">C</span>
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <br><br><br><br><br><br><br><br>
+          <input class="btn btn-default" id="recordBtn" name="submit" type="submit" value="Clear"/>
+      </form>
+    </div>
+  </body>
+</html>

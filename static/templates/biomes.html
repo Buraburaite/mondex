@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>'MonDex - Biomes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="http://s3.amazonaws.com/mondexbucket/static/formatting/fourth.css">
+    <style>
+        #Left{text-align:left;}
+        #Center{text-align:center;}
+        #Right{text-align:right;}
+        #searchBar{-webkit-column-count:3; -moz-column-count:3; column-count:3;
+                    background-color: #EBA963; border: 2px solid black; padding: 2px;}
+        #biomeHeader{font-size: 16px; font-family: courier; font-weight: bold;}
+        #biomeFont{font-size: 16px; font-family: courier;}
+    </style>
+  </head>
+  <body>
+    <div id="searchBar">
+        <div id="Left">                    
+            <form action="" method="post">
+<<<<<<< HEAD
+                <input type="search" list="autoComplete" placeholder="Search..." name="search" size="18" value="{{ request.form.search }}">
+=======
+<<<<<<< HEAD
+                <input type="search" list="autoComplete" placeholder="Search..." name="search" size="18" value="">
+=======
+                <input type="search" list="autoComplete" placeholder="Search..." name="search" size="18" value="{{ request.form.search }}">
+>>>>>>> 668cb27513696379daeff3950f81b13f6b22f5f8
+>>>>>>> 2dc7d89b57b0e619e86365a9ed912e14a7f586dc
+                <datalist id="autoComplete">
+                {% for mon in monNames %}<option value="{{ mon }}">
+                {% endfor %}</datalist>
+                <input class="btn btn-default" name="submit" type="submit" value="Go">
+                <input type="checkbox" name="checkboxS" value="Seen">S
+                <input type="checkbox" name="checkboxA" value="SeenA">A
+                <input type="checkbox" name="checkboxB" value="SeenB">B 
+                <input type="checkbox" name="checkboxC" value="Caught">C
+                <input class="btn btn-default" name="submit" type="submit" value="Update">{{ error }}
+        </div>
+        <div id="Center">      
+                <input class="btn btn-default" name="submit" type="submit" value="Home">  
+                <input class="btn btn-default" name="submit" type="submit" value="Record">
+                <input class="btn btn-default" name="submit" type="submit" value="List">
+                <input class="btn btn-default" name="submit" type="submit" value="Type Chart">
+                <input class="btn btn-default" name="submit" type="submit" value="Calculate">
+        </div>
+        <div id="Right">
+                <input class="btn btn-default" name="submit" type="submit" value="Logout">
+            </form>
+        </div>       
+    </div>
+    <div id="biomeFont">
+    <p id="biomeHeader"><u>Biome</u>&nbsp&nbsp<u>Species</u>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<u>Versions</u></p><br>
+    {% for biome in biomeList %}
+        {{ biome }}{% for i in range(biomeIndex[biome][2]) %}&nbsp{% endfor %}
+        {{ "Species:" }}{% if biomeIndex[biome][3]==True %}&nbsp{% endif %}
+        {{ biomeIndex[biome][0] + "%, Versions:" }}{% if biomeIndex[biome][4]==True %}&nbsp{% endif %}
+        {{ biomeIndex[biome][1] + "%" }}<br><br>
+    {% endfor %}
+    </div>
+
+  </body>
+</html>

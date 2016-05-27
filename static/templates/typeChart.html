@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>'MonDex - Type Chart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="http://s3.amazonaws.com/mondexbucket/static/formatting/fourth.css">
+    <style>
+        #Left{text-align:left;}
+        #Center{text-align:center;}
+        #Right{text-align:right;}
+        #searchBar{-webkit-column-count:3; -moz-column-count:3; column-count:3;
+                    background-color: #EBA963; border: 2px solid black; padding: 2px;}
+    </style>
+  </head>
+  <body>
+    <div id="searchBar">
+        <div id="Left">                    
+            <form action="" method="post">
+                <input type="search" list="autoComplete" placeholder="Search..." name="search" size="18" value="">
+                <datalist id="autoComplete">
+                {% for mon in monNames %}<option value="{{ mon }}">
+                {% endfor %}</datalist>
+                <input class="btn btn-default" name="submit" type="submit" value="Go">
+                <input type="checkbox" name="checkboxS" value="Seen">S
+                <input type="checkbox" name="checkboxA" value="SeenA">A
+                <input type="checkbox" name="checkboxB" value="SeenB">B 
+                <input type="checkbox" name="checkboxC" value="Caught">C
+                <input class="btn btn-default" name="submit" type="submit" value="Update">{{ error }}
+        </div>
+        <div id="Center">      
+                <input class="btn btn-default" name="submit" type="submit" value="Home">  
+                <input class="btn btn-default" name="submit" type="submit" value="Record">
+                <input class="btn btn-default" name="submit" type="submit" value="List">
+                <input class="btn btn-default" name="submit" type="submit" value="Map">
+                <input class="btn btn-default" name="submit" type="submit" value="Calculate">
+        </div>
+        <div id="Right">
+                <input class="btn btn-default" name="submit" type="submit" value="Logout">
+            </form>
+        </div>       
+    </div>
+    <div align="middle"><img src="http://s3.amazonaws.com/mondexbucket/static/formatting/typeChart.png"></div>
+
+  </body>
+</html>
